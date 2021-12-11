@@ -12,7 +12,7 @@ MoveIt2 interface를 이용하여 Ignition Gazebo 환경에서 Indy7를 조작�
   - [indy7_ign](https://github.com/HYU-PBLRC-PB1/indy7_ign.git)
   - [indy7_moveit2_config](https://github.com/HYU-PBLRC-PB1/indy7_moveit2_config.git)
 
-## 기타
+## 
 private repository의 personal access token 인증 과정을 반복적으로 수행하지 않기 위해 다음의 명령어를 수행하는 것을 권장합니다.
 
 ```bash
