@@ -26,7 +26,7 @@ git config --global credential.helper "cache --timeout=3600" # 인증한 token�
 ```bash
 mkdir -p ~/robot_ws/src # colcon workspace가 없을 경우만 수행합니다.
 cd ~/robot_ws/src
-git clone https://github.com/HYU-PBLRC-PB1/indy7_moveit2_config.git # 원격 저장소로부터 package를 다운로드합니다.
+git clone https://github.com/HYU-PBLRC-PB1/indy7_ign_moveit2.git # 원격 저장소로부터 package를 다운로드합니다.
 cd ~/robot_ws && colcon build --symlink-install # colcon workspace에서 빌드를 진행합니다.
 source ~/robot_ws/install/setup.bash
 ```
