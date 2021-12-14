@@ -118,7 +118,7 @@ ros2 topic pub --once /xyz_pose std_msgs/msg/String 'data: "-0.1 0.0 0.0"'
 ros2 topic pub --once /xyz_pose std_msgs/msg/String 'data: "0.1 0.0 0.0"'
 ```
 
-### examples/python/example_topic.py
+### How does it work? (examples/python/example_topic.py)
 ```python
 # base pose
 self.latest_position = [0.25, 0.25, 0.25]
