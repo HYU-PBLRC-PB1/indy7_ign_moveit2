@@ -112,6 +112,10 @@ ros2 launch indy7_ign_moveit2 example_topic.launch.py
 ### Terminal 2
 ```bash
 ros2 topic pub --once /xyz_pose std_msgs/msg/String 'data: "-0.1 0.0 0.0"'
+# wait for 5 seconds!
+ros2 topic pub --once /xyz_pose std_msgs/msg/String 'data: "-0.1 0.0 0.0"'
+# wait for 5 seconds!
+ros2 topic pub --once /xyz_pose std_msgs/msg/String 'data: "0.1 0.0 0.0"'
 ```
 
 ### examples/python/example_topic.py
