@@ -60,7 +60,9 @@ install(PROGRAMS
     ${EXAMPLES_DIR}/example_follow_object_wait_until_executed.py
     ${EXAMPLES_DIR}/example_follow_object_direct.py
     ${EXAMPLES_DIR}/example_gripper.py
-    ${EXAMPLES_DIR}/example_throw.py
+    ${EXAMPLES_DIR}/example_throw.py    
+
+    ${EXAMPLES_DIR}/example_topic.py
     DESTINATION lib/${PROJECT_NAME}
 )
 

@@ -78,7 +78,7 @@ indy7_ign_moveit2
 
 ```
 
-## 예제
+## 예제1
 기본적인 예제를 수행하기 위해 다음의 명령어를 실행합니다.
 ```bash
 cd ~/robot_ws && source install/setup.bash
@@ -98,6 +98,46 @@ Indy7이 MoveIt2 interface를 이용하여 목표를 잘 추종하는 지 확인
 예상되는 실행 결과는 다음 그림과 같습니다.
 ![example](figure/example.gif)
 
+## 예제2
+
+
+
+
+
+### Terminal 1
+```bash
+cd ~/robot_ws && source install/setup.bash
+ros2 launch indy7_ign_moveit2 example_topic.launch.py 
+```
+### Terminal 2
+```bash
+ros2 topic pub --once /xyz_pose std_msgs/msg/String 'data: "-0.1 0.0 0.0"'
+```
+
+### examples/python/example_topic.py
+```python
+# base pose
+self.latest_position = [0.25, 0.25, 0.25]
+self.latest_quat = [1.0, 0.0, 0.0, 0.0]
+```
+
+```python
+# msg.data = "-0.1, 0.0, 0.0"
+# xyz_msg = ["-0.1", "0.0", "0.0"]
+# xyz = [-0.1, 0.0, 0.0] 
+xyz_msg = msg.data.split(' ')
+xyz = [float(elem) for elem in xyz_msg]
+
+self.latest_position[0] += xyz[0]       
+self.latest_position[1] += xyz[1]
+self.latest_position[2] += xyz[2]
+
+self.moveit2_.set_pose_goal(self.latest_position, self.latest_quat)
+# Plan and execute
+self.moveit2_.plan_kinematic_path()
+self.moveit2_.execute()
+```
+
 ## 기타
 현재 Ignition Gazebo에서 spawn이 되는 indy7의 model은 'Ignition Robotics'의 robot asset 공유 저장소인 [Fuel](https://app.ignitionrobotics.org/pmh5050/fuel/models/indy7)에서 다운로드 후 spawn이 수행되게끔 패키지 내에 구현되어 있습니다.
 
@@ -108,7 +148,6 @@ Indy7이 MoveIt2 interface를 이용하여 목표를 잘 추종하는 지 확인
 cd ~/.ignition/
 rm -rf fuel
 ```
-
 또는 다음의 경로에 직접 접근하는 방식으로 indy7의 model 파일(sdf)을 수정할 수 있습니다.
 ```
 ~/.ignition/fuel/fuel.ignitionrobotics.org/pmh5050/models/indy7
