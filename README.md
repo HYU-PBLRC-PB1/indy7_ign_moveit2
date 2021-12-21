@@ -1,38 +1,39 @@
 # indy7_ign_moveit2
-MoveIt2 interface를 이용하여 Ignition Gazebo 환경에서 Indy7를 조작하는 기초 프로젝트에 해당합니다.
+This is a basic project to operate Indy7 in Ignition Gazebo environment using MoveIt2 interface.
 
-## 의존성
+## Dependency
 - [ROS2 Foxy](https://docs.ros.org/en/foxy/Installation.html)
 - [Ignition Fortress](https://ignitionrobotics.org/docs/fortress)
 - [MoveIt 2](https://moveit.ros.org/)
   - [Binary Install](https://moveit.ros.org/install-moveit2/binary)
-  - [Source Build(권장)](https://moveit.ros.org/install-moveit2/source/)
+  - [Source Build(Recommend)](https://moveit.ros.org/install-moveit2/source/)
 - [ros_ign](https://github.com/ignitionrobotics/ros_ign/tree/ros2)
 - Ignition package for indy7
   - [indy7_ign](https://github.com/HYU-PBLRC-PB1/indy7_ign.git)
   - [indy7_moveit2_config](https://github.com/HYU-PBLRC-PB1/indy7_moveit2_config.git)
 
-## 팁
-private repository의 personal access token 인증 과정을 반복적으로 수행하지 않기 위해 다음의 명령어를 수행하는 것을 권장합니다.
+## Tip
+In order not to repeatedly perform the personal access token authentication process of the private repository, 
+it is recommended to run the following command.
 
 ```bash
 git config --global credential.helper cache
-git config --global credential.helper "cache --timeout=3600" # 인증한 token을 3600초 동안 cache  
+git config --global credential.helper "cache --timeout=3600" # Cache the authenticated token for 3600 seconds
 ```
 
-## 설치 및 확인
-다음의 명령어를 통해 원격 저장소로부터 package를 내려받아 자신의 colcon workspace에 설치합니다.
+## Install & Build
+Run the following command to download the package from the remote repository and install it in your colcon workspace.
 
 ```bash
-mkdir -p ~/robot_ws/src # colcon workspace가 없을 경우만 수행합니다.
+mkdir -p ~/robot_ws/src # Make colcon workespace directory. If colcon workspace does not exist, run this command.
 cd ~/robot_ws/src
-git clone https://github.com/HYU-PBLRC-PB1/indy7_ign_moveit2.git # 원격 저장소로부터 package를 다운로드합니다.
-cd ~/robot_ws && colcon build --symlink-install # colcon workspace에서 빌드를 진행합니다.
+git clone https://github.com/HYU-PBLRC-PB1/indy7_ign_moveit2.git # Download the package from the remote repository.
+cd ~/robot_ws && colcon build --symlink-install # Build colcon workspace.
 source ~/robot_ws/install/setup.bash
 ```
 
-## 패키지 구조
-원격 저장소로부터 내려받은 패키지의 파일 구조를 확인하기 위해 다음의 명령어를 수행합니다.
+## Package Structure
+If you want to check the file structure of a package, run the following command.
 ```bash
 cd ~/robot_ws/src/indy7_ign_moveit2
 tree
@@ -78,15 +79,15 @@ indy7_ign_moveit2
 
 ```
 
-## 예제1
-기본적인 예제를 수행하기 위해 다음의 명령어를 실행합니다.
+## Example1
+Run the following command to execute the basic example file.
 ```bash
 cd ~/robot_ws && source install/setup.bash
 ros2 launch indy7_ign_moveit2 example_follow_object.launch.py
 ```
 ![fig1](figure/fig1.png)
 
-Indy7이 MoveIt2 interface를 이용하여 목표를 잘 추종하는 지 확인하기 위해 목표(큐브)의 위치를 조작합니다.
+Change the position of the target (cube) using the MoveIt2 interface to check if the Indy7 follows the target well.
 
 * 실행된 Ignition Gazebo에서 우측 상단의 ⋮ 모양을 클릭합니다.
 * Component inspector를 입력한 뒤 클릭합니다.
