@@ -89,17 +89,17 @@ ros2 launch indy7_ign_moveit2 example_follow_object.launch.py
 
 Change the position of the target (cube) using the MoveIt2 interface to check if the Indy7 follows the target well.
 
-* 실행된 Ignition Gazebo에서 우측 상단의 ⋮ 모양을 클릭합니다.
-* Component inspector를 입력한 뒤 클릭합니다.
-* Ignition world에 있는 큐브를 클릭합니다.
-* Component inspector상의 Pose 정보를 변경합니다.
+* In the launched Ignition Gazebo, click the ⋮ icon in the upper right corner.
+* Enter component inspector and click on it.
+* Click on the cube in the Ignition world.
+* Change the Pose property in the component inspector.
 
 ![fig2](figure/fig2.png)
 
-예상되는 실행 결과는 다음 그림과 같습니다.
+The expected execution result is shown in the following figure.
 ![example](figure/example.gif)
 
-## 예제2
+## Example2
 
 
 
@@ -143,17 +143,17 @@ self.moveit2_.plan_kinematic_path()
 self.moveit2_.execute()
 ```
 
-## 기타
-현재 Ignition Gazebo에서 spawn이 되는 indy7의 model은 'Ignition Robotics'의 robot asset 공유 저장소인 [Fuel](https://app.ignitionrobotics.org/pmh5050/fuel/models/indy7)에서 다운로드 후 spawn이 수행되게끔 패키지 내에 구현되어 있습니다.
+## Etc
+Indy7's model currently spawned in Ignition Gazebo is spawned after downloading from [Fuel] https://app.ignitionrobotics.org/pmh5050/fuel/models/indy7), the shared storage of robot assets of 'Ignition Robotics'.
 
-따라서, 원격 저장소([Fuel](https://app.ignitionrobotics.org/pmh5050/fuel/models/indy7))에서 변경사항이 있을 경우 이를 반영하기 위해선 local 장치에 설치되어 있는 indy7 model을 직접 삭제해주어야 합니다.
+If there is a change in the remote repository ([Fuel](https://app.ignitionrobotics.org/pmh5050/fuel/models/indy7)), you must manually delete the indy7 model installed in the local device to apply it.
 
-다음의 명령어를 통해 local 장치에 설치되어 있는 indy7 model을 제거할 수 있습니다. 
+You can uninstall the indy7 model installed on the local device with the following command.
 ```bash
 cd ~/.ignition/
 rm -rf fuel
 ```
-또는 다음의 경로에 직접 접근하는 방식으로 indy7의 model 파일(sdf)을 수정할 수 있습니다.
+You can modify indy7's model file (sdf) by directly accessing the following path.
 ```
 ~/.ignition/fuel/fuel.ignitionrobotics.org/pmh5050/models/indy7
 ```
